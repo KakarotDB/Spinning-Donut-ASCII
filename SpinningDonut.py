@@ -3,8 +3,8 @@ import os
 import time
 
 
-screen_width = 80  ##dimensions of the screen
-screen_height = 40
+screen_width = 60  ##dimensions of the screen
+screen_height = 30
 
 r = 1  # radii of the two circles
 R = 2
@@ -54,10 +54,10 @@ while True:
 
             K2 = 5  # distance to push donut away from viewer
 
-            K1 = screen_width * K2 * 3 / (8 * (r + R))  # Scaling factor, based on screen width and distance
+            K1 = screen_width * K2 * 1.8 / (8 * (r + R))  # Scaling factor, based on screen width and distance
             One_over_z = 1 / (z_final + K2)
 
-            xp = int(screen_width / 2 + K1 * One_over_z * x_final)
+            xp = int(screen_width / 2 + (K1 * One_over_z * x_final * 1.8))
             yp = int(screen_height / 2 - K1 * One_over_z * y_final) ##exact pixels where it should be drawn
 
             ##Now we have to do shading
@@ -83,7 +83,7 @@ while True:
                     z_buffer[yp][xp] = One_over_z
 
                     #Mapping luminance
-                    L_index = int(luminance * 11)
+                    L_index = int((luminance ** 0.5) * 11)
 
                     output[yp][xp] = palette[L_index]
 
