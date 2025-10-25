@@ -54,11 +54,11 @@ while True:
 
             K2 = 5  # distance to push donut away from viewer
 
-            K1 = screen_width * K2 * 1.8 / (8 * (r + R))  # Scaling factor, based on screen width and distance
+            K1 = screen_width * K2 * 3 / (8 * (r + R))  # Scaling factor, based on screen width and distance
             One_over_z = 1 / (z_final + K2)
 
-            xp = int(screen_width / 2 + (K1 * One_over_z * x_final * 1.8))
-            yp = int(screen_height / 2 - K1 * One_over_z * y_final) ##exact pixels where it should be drawn
+            xp = int(screen_width / 2 + (K1 * One_over_z * x_final ))
+            yp = int(screen_height / 2 - K1 * One_over_z * y_final * 0.5) ##exact pixels where it should be drawn
 
             ##Now we have to do shading
             ##We use surface normals to aid us in that
